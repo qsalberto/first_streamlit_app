@@ -61,7 +61,7 @@ if streamlit.button('Get fruit list'):
   my_cur.execute("select * from fruit_load_list")
   my_data_rows = my_cur.fetchall()
   my_cnx.close()
-  streamlit.header("The fruit load list contains:")
+  streamlit.header("View Our Fruit List - Add Your Favorites!")
   streamlit.dataframe(my_data_rows)
 
 def insert_row_snowflake(new_fruit):
