@@ -55,13 +55,13 @@ except:
 # don't run anything past here while we troubleshoot
 # streamlit.stop()
 
+streamlit.header("View Our Fruit List - Add Your Favorites!")
 if streamlit.button('Get fruit list'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   my_cur = my_cnx.cursor()
   my_cur.execute("select * from fruit_load_list")
   my_data_rows = my_cur.fetchall()
   my_cnx.close()
-  streamlit.header("View Our Fruit List - Add Your Favorites!")
   streamlit.dataframe(my_data_rows)
 
 def insert_row_snowflake(new_fruit):
